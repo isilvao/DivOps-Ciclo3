@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ListEmpresaTest {
+
+    /*
     private ListEmpresa listEmpresa;
 
     private void setupEscenario1(){
@@ -48,4 +50,6 @@ public class ListEmpresaTest {
         assertNotNull(listEmpresa.deleteEmpresa(listEmpresa.findEmpresa(2)));
         assertEquals(0, listEmpresa.getLista().size());
     }
+
+     */
 }
