@@ -15,4 +15,20 @@ public class EmpresaService {
     public ArrayList<Empresa> getAll(){
         return listaEmpresa.getLista();
     }
+
+    public Empresa findByNit(int id){
+        return listaEmpresa.findEmpresa(id);
+    }
+
+    public Empresa addEmpresa(Empresa empresa){
+        return listaEmpresa.addEmpresa(empresa) ? empresa : null;
+    }
+
+    public Empresa updateEmpresa(Empresa empresa){
+        return listaEmpresa.updateEmpresa(empresa);
+    }
+
+    public Empresa deleteEmpresa(int id){
+        return listaEmpresa.deleteEmpresa(listaEmpresa.findEmpresa(id));
+    }
 }

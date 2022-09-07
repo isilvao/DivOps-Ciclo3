@@ -12,9 +12,9 @@ public class ListEmpresa {
         lista = new ArrayList<>();
     }
 
-    public static Empresa findEmpresa(String nit){
+    public static Empresa findEmpresa(int id){
         for (Empresa empresa: lista) {
-            if (empresa.getNit().equals(nit)){
+            if (empresa.getId()==id){
                 return empresa;
             }
         }
@@ -22,7 +22,7 @@ public class ListEmpresa {
     }
 
     public boolean addEmpresa(Empresa empresa){
-        if (findEmpresa(empresa.getNit()) == null){
+        if (findEmpresa(empresa.getId()) == null){
             lista.add(empresa);
             return true;
         }
@@ -30,7 +30,7 @@ public class ListEmpresa {
     }
 
     public Empresa updateEmpresa(Empresa empresa){
-        Empresa empresa1 = findEmpresa(empresa.getNit());
+        Empresa empresa1 = findEmpresa(empresa.getId());
         if (empresa1 != null){
             lista.set(lista.indexOf(empresa1), empresa);
 
