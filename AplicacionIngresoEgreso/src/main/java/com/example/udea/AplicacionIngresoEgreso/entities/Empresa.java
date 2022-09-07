@@ -1,19 +1,47 @@
 package com.example.udea.AplicacionIngresoEgreso.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "empresa")
 public class Empresa {
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @Column(nullable = false)
     private String nombre;
+
+    @Column(nullable = false)
     private String nit;
+
+    @Column(nullable = false)
     private String direccion;
+
+    @Column(nullable = false)
     private String telefono;
+
+    @Column(nullable = false)
     private String correo;
 
-    public Empresa(String nombre, String nit, String direccion, String telefono, String correo) {
+    public Empresa() {
+    }
+    public Empresa(int id, String nombre, String nit, String direccion, String telefono, String correo) {
+        this.id = id;
         this.nombre = nombre;
         this.nit = nit;
         this.direccion = direccion;
         this.telefono = telefono;
         this.correo = correo;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNombre() {
         return nombre;
     }
