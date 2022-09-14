@@ -1,19 +1,26 @@
 package com.example.udea.AplicacionIngresoEgreso.entities;
 
-public class Empleado {
+import javax.persistence.*;
 
-    private int id;
+@Entity
+@Table(name = "empleado")
+public class Empleado {
+    @Id
     private String cedula;
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private String correo;
     /***
      * Aquí va el Id de la empresa asociada
      */
-    private String empresa;
+    @ManyToOne
+    @JoinColumn(name="empresa_id")
+    private Empresa empresa;
+    @Column(nullable = false)
     private boolean esAdministrativo;
 
-    public Empleado(int id, String cedula, String nombre, String correo, String empresa, boolean esAdministrativo) {
-        this.id = id;
+    public Empleado( String cedula, String nombre, String correo, Empresa empresa, boolean esAdministrativo) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.correo = correo;
@@ -21,12 +28,7 @@ public class Empleado {
         this.esAdministrativo = esAdministrativo;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Empleado() {
     }
 
     public String getCedula() {
@@ -53,11 +55,11 @@ public class Empleado {
         this.correo = correo;
     }
 
-    public String getEmpresa() {
+    public Empresa getEmpresa() {
         return empresa;
     }
 
-    public void setEmpresa(String empresa) {
+    public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
 

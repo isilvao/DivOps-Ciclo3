@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="58866759-9db3-4b43-a668-1d5df47d5d92" name="Changes" comment="" />
+    <list default="true" id="58866759-9db3-4b43-a668-1d5df47d5d92" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +28,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/DivOps-Ciclo3&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dfvar/OneDrive/Documentos/MisiónTic2022/Ciclo 3/Programación/DivOps-Ciclo3/AplicacionIngresoEgreso&quot;
   }
 }</component>
   <component name="RunManager">

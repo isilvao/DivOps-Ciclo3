@@ -10,9 +10,9 @@ public class ListEmpleado {
     public ListEmpleado() {
         empleados = new ArrayList<>();
     }
-    public Empleado findEmployee(int id) {
+    public Empleado findEmployee(String cedula) {
         for(Empleado empleado: empleados) {
-            if(empleado.getId() == id) {
+            if(empleado.getCedula().equals(cedula)) {
                 return empleado;
             }
         }
@@ -20,7 +20,7 @@ public class ListEmpleado {
     }
 
     public Empleado addEmployee(Empleado empleado) {
-        if(findEmployee(empleado.getId()) == null) {
+        if(findEmployee(empleado.getCedula()) == null) {
             empleados.add(empleado);
             return empleado;
         }
@@ -28,7 +28,7 @@ public class ListEmpleado {
     }
 
     public Empleado updateEmployee(Empleado empleado) {
-        Empleado empleadoOld = findEmployee(empleado.getId());
+        Empleado empleadoOld = findEmployee(empleado.getCedula());
         if(empleadoOld != null) {
             empleados.set(empleados.indexOf(empleadoOld), empleado);
             return empleado;
@@ -36,8 +36,8 @@ public class ListEmpleado {
         return null;
     }
 
-    public Empleado deleteEmployee(int id) {
-        Empleado empleado = findEmployee(id);
+    public Empleado deleteEmployee(String cedula) {
+        Empleado empleado = findEmployee(cedula);
         if(empleado != null) {
             empleados.remove(empleado);
             return empleado;

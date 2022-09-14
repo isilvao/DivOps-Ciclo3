@@ -1,17 +1,29 @@
 package com.example.udea.AplicacionIngresoEgreso.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "movimiento_dinero")
 public class MovimientoDinero {
-
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private double monto;
-    private String concepto;
-    private String empleado;
 
-    public MovimientoDinero(int id, double monto, String concepto, String empleado) {
+    @Column(nullable = false)
+    private double monto;
+    @Column(nullable = false)
+    private String concepto;
+    @ManyToOne
+    @JoinColumn(name = "empleado_id")
+    private Empleado empleado;
+
+    public MovimientoDinero(int id, double monto, String concepto, Empleado empleado) {
         this.id = id;
         this.monto = monto;
         this.concepto = concepto;
         this.empleado = empleado;
+    }
+
+    public MovimientoDinero() {
     }
 
     public int getId() {
@@ -38,11 +50,11 @@ public class MovimientoDinero {
         this.concepto = concepto;
     }
 
-    public String getEmpleado() {
+    public Empleado getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(String empleado) {
+    public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
     }
 }

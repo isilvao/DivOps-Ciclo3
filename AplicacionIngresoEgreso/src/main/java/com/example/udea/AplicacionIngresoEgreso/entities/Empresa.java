@@ -2,6 +2,7 @@ package com.example.udea.AplicacionIngresoEgreso.entities;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "empresa")
 public class Empresa {
@@ -82,3 +83,5 @@ public class Empresa {
         this.correo = correo;
     }
 }
+
+
