@@ -1,36 +1,51 @@
 package com.example.udea.AplicacionIngresoEgreso.services;
 
-import com.example.udea.AplicacionIngresoEgreso.entities.ListMovimientoDinero;
 import com.example.udea.AplicacionIngresoEgreso.entities.MovimientoDinero;
+import com.example.udea.AplicacionIngresoEgreso.repositories.MovimientoDineroRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
+@Service
 public class MovimientoDineroService {
 
-    private ListMovimientoDinero listMovimientoDinero;
+    private MovimientoDineroRepository movimientoRepositorio;
 
-    public MovimientoDineroService() {
-        listMovimientoDinero = new ListMovimientoDinero();
+    public MovimientoDineroService(MovimientoDineroRepository movimientoRepositorio) {
+        this.movimientoRepositorio = movimientoRepositorio;
     }
 
-    public ArrayList<MovimientoDinero> getAll() {
-        return listMovimientoDinero.getMovimientosDinero();
+    public List<MovimientoDinero> getAll() {
+        return movimientoRepositorio.findAll();
     }
 
     public MovimientoDinero addMovimiento(MovimientoDinero movimientoDinero) {
-        return listMovimientoDinero.addMovimiento(movimientoDinero);
+        return movimientoRepositorio.save(movimientoDinero);
     }
 
     public MovimientoDinero updateMovimiento(MovimientoDinero movimientoDinero) {
-        return listMovimientoDinero.updateMovimiento(movimientoDinero);
+        return movimientoRepositorio.save(movimientoDinero);
     }
 
     public MovimientoDinero deleteMovimiento(int id) {
-        return listMovimientoDinero.deleteMovimiento(id);
+        Optional<MovimientoDinero> movimiento= movimientoRepositorio.findById(id);
+        if (movimiento.isPresent()) {
+            movimientoRepositorio.delete(movimiento.get());
+            return movimiento.get();
+        }
+        return null;
+
+
     }
 
     public MovimientoDinero findMovimientoById(int id) {
-        return listMovimientoDinero.findMovimiento(id);
+        Optional<MovimientoDinero> movimiento= movimientoRepositorio.findById(id);
+        if (movimiento.isPresent()) {
+            return movimiento.get();
+        }
+        return null;
     }
 
 }

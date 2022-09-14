@@ -5,6 +5,7 @@ import com.example.udea.AplicacionIngresoEgreso.services.MovimientoDineroService
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/movimientos")
@@ -12,12 +13,12 @@ public class MovimientoDineroController {
 
     private MovimientoDineroService movimientoDineroService;
 
-    public MovimientoDineroController() {
-        movimientoDineroService = new MovimientoDineroService();
+    public MovimientoDineroController(MovimientoDineroService movimientoDineroService) {
+        this.movimientoDineroService = movimientoDineroService;
     }
 
     @GetMapping
-    public ArrayList<MovimientoDinero> getAll() {
+    public List<MovimientoDinero> getAll() {
         return movimientoDineroService.getAll();
     }
 

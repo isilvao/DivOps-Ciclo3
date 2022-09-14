@@ -5,24 +5,27 @@ import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/empresa")
 public class EmpresaController {
     private EmpresaService empresaService;
 
-    public EmpresaController() {
-        empresaService = new EmpresaService();
+
+
+    public EmpresaController(EmpresaService empresaService) {
+        this.empresaService = empresaService;
     }
 
     @GetMapping
-    public ArrayList<Empresa> getAll(){
+    public List<Empresa> getAll(){
         return empresaService.getAll();
     }
 
     @GetMapping("/{id}")
     public Empresa findByNit(@PathVariable int id){
-        return empresaService.findByNit(id);
+        return empresaService.findById(id);
     }
 
     @PostMapping
