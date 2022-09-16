@@ -5,6 +5,7 @@ import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/empleados")
@@ -12,12 +13,14 @@ public class EmpleadoController {
 
     private EmpleadoService empleadoServicio;
 
-    public EmpleadoController() {
-        empleadoServicio = new EmpleadoService();
+    public EmpleadoController(EmpleadoService empleadoServicio) {
+        this.empleadoServicio = empleadoServicio;
     }
 
+
+
     @GetMapping
-    public ArrayList<Empleado> getAll() {
+    public List<Empleado> getAll() {
         return empleadoServicio.getAll();
     }
 
@@ -26,19 +29,19 @@ public class EmpleadoController {
         return empleadoServicio.addEmployee(emplado);
     }
 
-    @GetMapping("/{id}")
-    public Empleado findEmployeeById(@PathVariable int id) {
-        return empleadoServicio.findEmployeeById(id);
+    @GetMapping("/{cedula}")
+    public Empleado findEmployeeById(@PathVariable String cedula) {
+        return empleadoServicio.findEmployeeById(cedula);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{cedula}")
     public Empleado updateEmployee(@RequestBody Empleado empleado) {
         return empleadoServicio.updateEmployee(empleado);
     }
 
-    @DeleteMapping("/{id}")
-    public Empleado deleteEmployee(@PathVariable int id) {
-        return empleadoServicio.deleteEmployee(id);
+    @DeleteMapping("/{cedula}")
+    public Empleado deleteEmployee(@PathVariable String cedula) {
+        return empleadoServicio.deleteEmployee(cedula);
 
     }
 
