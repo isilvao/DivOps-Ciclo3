@@ -1,0 +1,9 @@
+body{
+    background: cornsilk;
+    align-content: center;
+}
+#content-main{
+    width: 1200px;
+    border: 1px solid;
+    text-align: center;
+}
