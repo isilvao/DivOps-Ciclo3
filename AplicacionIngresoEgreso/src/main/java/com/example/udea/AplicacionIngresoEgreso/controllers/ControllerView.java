@@ -1,5 +1,6 @@
 package com.example.udea.AplicacionIngresoEgreso.controllers;
 
+import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,25 +12,37 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/views")
 public class ControllerView {
 
-private EmpresaService empresaService;
+    private EmpresaService empresaService;
+    private EmpleadoService empleadoService;
 
+    public ControllerView(EmpresaService empresaService, EmpleadoService empleadoService) {
+        this.empresaService = empresaService;
+        this.empleadoService = empleadoService;
+    }
 
     @GetMapping
-    public String index(){
+    public String index(Model model){
+        model.addAttribute("title", "Página principal");
+
         return "index.html";
     }
 
-    @GetMapping("/listEmpresa")
-    public String viewIndex(Model model){
-        model.addAttribute()
-        model.addAttribute("title", "Pagina Principal");
-        return "ListEmpresa.html";
+    @GetMapping("/Empresas")
+        public String empresas(Model model){
+
+        model.addAttribute("title", "Lista de empresas");
+        model.addAttribute("empresas", empresaService.getAll());
+
+        return "Empresas.html";
     }
 
-    @GetMapping("/Empresa")
-    public String empresas(Model model){
-        model.addAttribute("title", "Vista de empresas");
-        return "Empresa.html";
+    @GetMapping("/Empleados")
+        public String empleados(Model model){
+
+        model.addAttribute("title", "Lista de empleados");
+        model.addAttribute("empleados", empleadoService.getAll());
+
+        return "Empleados.html";
     }
 }
 

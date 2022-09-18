@@ -1,6 +1,7 @@
 package com.example.udea.AplicacionIngresoEgreso.entities;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
@@ -82,6 +83,31 @@ public class Empresa {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Empresa empresa = (Empresa) o;
+        return id == empresa.id && nombre.equals(empresa.nombre) && nit.equals(empresa.nit)
+                && direccion.equals(empresa.direccion) && telefono.equals(empresa.telefono)
+                && correo.equals(empresa.correo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombre, nit, direccion, telefono, correo);
+    }
+
+    @Override
+    public java.lang.String toString() {
+        return "Empresa{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", nit='" + nit + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", correo='" + correo + '\'' +
+                '}';
+    }
 }
-
-

@@ -42,7 +42,6 @@ public class EmpleadoController {
     @DeleteMapping("/{cedula}")
     public Empleado deleteEmployee(@PathVariable String cedula) {
         return empleadoServicio.deleteEmployee(cedula);
-
     }
 
 }

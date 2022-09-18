@@ -1,6 +1,7 @@
 package com.example.udea.AplicacionIngresoEgreso.entities;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "empleado")
@@ -69,5 +70,29 @@ public class Empleado {
 
     public void setEsAdministrativo(boolean esAdministrativo) {
         this.esAdministrativo = esAdministrativo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Empleado empleado = (Empleado) o;
+        return esAdministrativo == empleado.esAdministrativo && cedula.equals(empleado.cedula) && nombre.equals(empleado.nombre) && correo.equals(empleado.correo) && empresa.equals(empleado.empresa);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cedula, nombre, correo, empresa, esAdministrativo);
+    }
+
+    @Override
+    public java.lang.String toString() {
+        return "Empleado{" +
+                "cedula='" + cedula + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", empresa=" + empresa +
+                ", esAdministrativo=" + esAdministrativo +
+                '}';
     }
 }
