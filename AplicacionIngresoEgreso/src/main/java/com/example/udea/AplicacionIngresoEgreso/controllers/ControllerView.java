@@ -1,15 +1,15 @@
 package com.example.udea.AplicacionIngresoEgreso.controllers;
 
+import com.example.udea.AplicacionIngresoEgreso.entities.Empleado;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-@RequestMapping("/views")
+@RequestMapping("/")
 public class ControllerView {
 
     private EmpresaService empresaService;
@@ -20,29 +20,49 @@ public class ControllerView {
         this.empleadoService = empleadoService;
     }
 
-    @GetMapping
+    @GetMapping()
     public String index(Model model){
         model.addAttribute("title", "Página principal");
 
         return "index.html";
     }
 
-    @GetMapping("/Empresas")
+    @GetMapping("/empresas")
         public String empresas(Model model){
 
         model.addAttribute("title", "Lista de empresas");
         model.addAttribute("empresas", empresaService.getAll());
 
-        return "Empresas.html";
+        return "empresas.html";
     }
 
-    @GetMapping("/Empleados")
+    @GetMapping("/empleados")
         public String empleados(Model model){
 
         model.addAttribute("title", "Lista de empleados");
         model.addAttribute("empleados", empleadoService.getAll());
+        return "empleados.html";
+    }
 
-        return "Empleados.html";
+    @GetMapping("/quienesSomos")
+    public String quienesSomos (Model model){
+        model.addAttribute("title", "Quienes somos");
+
+        return "quienesSomos.html";
+    }
+
+    @GetMapping("/login")
+    public String login (Model model){
+        model.addAttribute("title", "Iniciar sesión");
+
+        return "login.html";
+    }
+
+    @GetMapping("/register")
+    public String register (Model model){
+        model.addAttribute("title", "Registrarse");
+        model.addAttribute("Empleado", new Empleado());
+        return "register.html";
     }
 }
 

@@ -4,7 +4,6 @@ import com.example.udea.AplicacionIngresoEgreso.entities.MovimientoDinero;
 import com.example.udea.AplicacionIngresoEgreso.repositories.MovimientoDineroRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

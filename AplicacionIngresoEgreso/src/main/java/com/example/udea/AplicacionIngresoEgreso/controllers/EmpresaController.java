@@ -4,14 +4,12 @@ import com.example.udea.AplicacionIngresoEgreso.entities.Empresa;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/empresa")
+@RequestMapping("/Empresas")
 public class EmpresaController {
     private EmpresaService empresaService;
-
 
 
     public EmpresaController(EmpresaService empresaService) {
