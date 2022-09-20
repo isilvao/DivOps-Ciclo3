@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/layout-main :: head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Crear empresa</title>
+</head>
+<body>
+<header th:insert="layouts/layout-main :: navbar"></header>
+<div class="container">
+    <form th:action="@{/Empresas}" th:method="post" th:object="${Empresa}" class="py-5 row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Nombre de la empresa</label>
+            <input th:field="*{nombre}" type="text" class="form-control" placeholder="Nombre" required>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">ID</label>
+            <input th:placeholder="${ids}" type="text" class="form-control" readonly>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">NIT</label>
+            <input th:field="*{nit}" type="text" class="form-control" placeholder="NIT" required>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Correo electrónico</label>
+            <input th:field="*{correo}" type="email" class="form-control" placeholder="Correo" required>
+        </div>
+        <div class="col-md-6"   >
+            <label class="form-label">Teléfono</label>
+            <input th:field="*{telefono}" type="text" class="form-control" placeholder="Teléfono" required>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Dirección</label>
+            <input th:field="*{direccion}" type="text" class="form-control" placeholder="Dirección" required>
+        </div>
+        <div class="col-12" style="text-align: center">
+            <button type="submit" class="btn btn-primary">Agregar empresa</button>
+        </div>
+    </form>
+</div>
+<div th:replace="layouts/layout-main :: footer"></div>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -2,14 +2,17 @@ package com.example.udea.AplicacionIngresoEgreso.controllers;
 
 import com.example.udea.AplicacionIngresoEgreso.entities.Empresa;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
+
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/Empresas")
 public class EmpresaController {
-    private EmpresaService empresaService;
+    public EmpresaService empresaService;
 
 
     public EmpresaController(EmpresaService empresaService) {
@@ -27,8 +30,10 @@ public class EmpresaController {
     }
 
     @PostMapping
-    public Empresa addEmpresa(@RequestBody Empresa empresa){
-        return empresaService.addEmpresa(empresa);
+    public RedirectView addEmpresa(@ModelAttribute Empresa empresa, Model model){
+        model.addAttribute(empresa);
+        this.empresaService.addEmpresa(empresa);
+        return new RedirectView("/empresas");
     }
 
     @PutMapping("/{id}")
@@ -37,9 +42,10 @@ public class EmpresaController {
     }
 
     @DeleteMapping("/{id}")
-    public Empresa deleteEmpresa(@PathVariable int id){
-        return empresaService.deleteEmpresa(id);
+    public RedirectView deleteEmpresa(@ModelAttribute Empresa empresa, Model model){
+        model.addAttribute(empresa);
+        this.empresaService.deleteEmpresa(empresa.getId());
+
+        return new RedirectView("/empresas");
     }
-
-
 }

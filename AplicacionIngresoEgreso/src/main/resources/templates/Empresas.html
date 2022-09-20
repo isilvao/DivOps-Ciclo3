@@ -34,15 +34,14 @@
                     <td th:text="${empresa.telefono}"></td>
                     <td th:text="${empresa.correo}"></td>
                     <td>
-                        <form th:action="@{/emoresas/{id}(id=${empresa.id})}" th:method="delete">
+                        <form th:action="@{/Empresas/{id}(id=${empresa.id})}" th:method="delete">
                             <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
                     </td>
                 </tr>
                 </tbody>
             </table>
-
-            <a class="btn btn-primary" href="/nuevaEmpresa">Crear Nuevo Plato</a>
+            <a class="btn btn-primary" href="/crearEmpresa">Añadir una empresa</a>
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 package com.example.udea.AplicacionIngresoEgreso.controllers;
 
 import com.example.udea.AplicacionIngresoEgreso.entities.Empleado;
+import com.example.udea.AplicacionIngresoEgreso.entities.Empresa;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
 import org.springframework.stereotype.Controller;
@@ -63,6 +64,13 @@ public class ControllerView {
         model.addAttribute("title", "Registrarse");
         model.addAttribute("Empleado", new Empleado());
         return "register.html";
+    }
+
+    @GetMapping("/crearEmpresa")
+    public String crearEmpresa (Model model){
+        model.addAttribute("ids", empresaService.getAll().size()+1);
+        model.addAttribute("Empresa", new Empresa());
+        return "crearEmpresa.html";
     }
 }
 
