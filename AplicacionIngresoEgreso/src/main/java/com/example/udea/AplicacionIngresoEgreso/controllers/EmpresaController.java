@@ -24,9 +24,9 @@ public class EmpresaController {
         return empresaService.getAll();
     }
 
-    @GetMapping("/{id}")
-    public Empresa findByNit(@PathVariable int id){
-        return empresaService.findById(id);
+    @GetMapping("/{nit}")
+    public Empresa findByNit(@PathVariable String nit){
+        return empresaService.findByNit(nit);
     }
 
     @PostMapping
@@ -36,15 +36,15 @@ public class EmpresaController {
         return new RedirectView("/empresas");
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{nit}")
     public Empresa updateEmpresa(@RequestBody Empresa empresa){
         return empresaService.updateEmpresa(empresa);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{nit}")
     public RedirectView deleteEmpresa(@ModelAttribute Empresa empresa, Model model){
         model.addAttribute(empresa);
-        this.empresaService.deleteEmpresa(empresa.getId());
+        this.empresaService.deleteEmpresa(empresa.getNit());
 
         return new RedirectView("/empresas");
     }

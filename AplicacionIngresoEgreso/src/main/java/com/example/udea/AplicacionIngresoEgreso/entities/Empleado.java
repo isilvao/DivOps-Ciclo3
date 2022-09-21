@@ -20,13 +20,16 @@ public class Empleado {
     private Empresa empresa;
     @Column(nullable = false)
     private boolean esAdministrativo;
+    @Column(nullable = false)
+    private String password;
 
-    public Empleado( String cedula, String nombre, String correo, Empresa empresa, boolean esAdministrativo) {
+    public Empleado( String cedula, String nombre, String correo, Empresa empresa, boolean esAdministrativo, String password) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.correo = correo;
         this.empresa = empresa;
         this.esAdministrativo = esAdministrativo;
+        this.password = password;
     }
 
     public Empleado() {
@@ -72,6 +75,14 @@ public class Empleado {
         this.esAdministrativo = esAdministrativo;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,7 +93,7 @@ public class Empleado {
 
     @Override
     public int hashCode() {
-        return Objects.hash(cedula, nombre, correo, empresa, esAdministrativo);
+        return Objects.hash(cedula, nombre, correo, empresa, esAdministrativo, password);
     }
 
     @Override

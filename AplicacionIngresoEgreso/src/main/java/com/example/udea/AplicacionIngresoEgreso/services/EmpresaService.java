@@ -19,8 +19,8 @@ public class EmpresaService {
         return empresaropositorio.findAll();
     }
 
-    public Empresa findById(int id){
-        Optional<Empresa> empresa= empresaropositorio.findById(id);
+    public Empresa findByNit(String nit){
+        Optional<Empresa> empresa= empresaropositorio.findById(nit);
         if (empresa.isPresent()) {
             return empresa.get();
         }
@@ -35,8 +35,8 @@ public class EmpresaService {
         return empresaropositorio.save(empresa);
     }
 
-    public Empresa deleteEmpresa(int id){
-        Optional<Empresa> empresa= empresaropositorio.findById(id);
+    public Empresa deleteEmpresa(String nit){
+        Optional<Empresa> empresa= empresaropositorio.findById(nit);
         if (empresa.isPresent()) {
             empresaropositorio.delete(empresa.get());
             return empresa.get();

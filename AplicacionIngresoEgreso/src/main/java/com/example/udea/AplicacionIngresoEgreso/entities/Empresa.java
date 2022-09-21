@@ -7,14 +7,12 @@ import java.util.Objects;
 @Entity
 @Table(name = "empresa")
 public class Empresa {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+
+    @Column(nullable = false) @Id
+    private String nit;
 
     @Column(nullable = false)
     private String nombre;
-
-    @Column(nullable = false)
-    private String nit;
 
     @Column(nullable = false)
     private String direccion;
@@ -27,8 +25,7 @@ public class Empresa {
 
     public Empresa() {
     }
-    public Empresa(int id, String nombre, String nit, String direccion, String telefono, String correo) {
-        this.id = id;
+    public Empresa(String nombre, String nit, String direccion, String telefono, String correo) {
         this.nombre = nombre;
         this.nit = nit;
         this.direccion = direccion;
@@ -36,13 +33,6 @@ public class Empresa {
         this.correo = correo;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -89,20 +79,19 @@ public class Empresa {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Empresa empresa = (Empresa) o;
-        return id == empresa.id && nombre.equals(empresa.nombre) && nit.equals(empresa.nit)
+        return nombre.equals(empresa.nombre) && nit.equals(empresa.nit)
                 && direccion.equals(empresa.direccion) && telefono.equals(empresa.telefono)
                 && correo.equals(empresa.correo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, nit, direccion, telefono, correo);
+        return Objects.hash(nombre, nit, direccion, telefono, correo);
     }
 
     @Override
     public java.lang.String toString() {
         return "Empresa{" +
-                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", nit='" + nit + '\'' +
                 ", direccion='" + direccion + '\'' +

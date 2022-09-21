@@ -16,14 +16,18 @@
             </div>
             <div class="col-md-6">
               <label class="form-label">Nombres y Apellidos</label>
-              <input th:field="*{nombre}" type="text" class="form-control" placeholder="Nombres y apellidos">
+              <input th:field="*{nombre}" type="text" class="form-control" placeholder="Nombres y apellidos" required>
             </div>
             <div class="col-12">
               <label class="form-label">Email</label>
-              <input th:field="*{correo}" type="email" class="form-control" placeholder="Correo">
+              <input th:field="*{correo}" type="email" class="form-control" placeholder="Correo" required>
+            </div>
+            <div class="col-12">
+                <label class="form-label">Contraseña</label>
+                <input th:field="*{password}" type="password" class="form-control" placeholder="Contraseña" required>
             </div>
             <div class="col-12" style="text-align: center;">
-              <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
           </form>
     </div>
