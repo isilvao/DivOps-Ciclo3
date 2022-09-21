@@ -2,22 +2,21 @@ package com.example.udea.AplicacionIngresoEgreso.controllers;
 
 import com.example.udea.AplicacionIngresoEgreso.entities.Empleado;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/empleados")
-public class EmpleadoController {
+@RequestMapping("/Empleados")
+public class empleadoController {
 
-    private EmpleadoService empleadoServicio;
+    public EmpleadoService empleadoServicio;
 
-    public EmpleadoController(EmpleadoService empleadoServicio) {
+    public empleadoController(EmpleadoService empleadoServicio) {
         this.empleadoServicio = empleadoServicio;
     }
-
-
 
     @GetMapping
     public List<Empleado> getAll() {
@@ -25,8 +24,11 @@ public class EmpleadoController {
     }
 
     @PostMapping
-    public Empleado addEmployee(@RequestBody Empleado emplado) {
-        return empleadoServicio.addEmployee(emplado);
+    public RedirectView addEmployee(@ModelAttribute Empleado empleado, Model model) {
+        model.addAttribute(empleado);
+        this.empleadoServicio.addEmployee(empleado);
+
+        return new RedirectView("/empleados");
     }
 
     @GetMapping("/{cedula}")

@@ -2,16 +2,17 @@ package com.example.udea.AplicacionIngresoEgreso.controllers;
 
 import com.example.udea.AplicacionIngresoEgreso.entities.Empresa;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
+
 import java.util.List;
 
 @RestController
-@RequestMapping("/empresa")
+@RequestMapping("/Empresas")
 public class EmpresaController {
-    private EmpresaService empresaService;
-
+    public EmpresaService empresaService;
 
 
     public EmpresaController(EmpresaService empresaService) {
@@ -23,25 +24,35 @@ public class EmpresaController {
         return empresaService.getAll();
     }
 
-    @GetMapping("/{id}")
-    public Empresa findByNit(@PathVariable int id){
-        return empresaService.findById(id);
+    @GetMapping("/{nit}")
+    public Empresa findByNit(@PathVariable String nit){
+        return empresaService.findByNit(nit);
     }
 
     @PostMapping
-    public Empresa addEmpresa(@RequestBody Empresa empresa){
-        return empresaService.addEmpresa(empresa);
+    public RedirectView addEmpresa(@ModelAttribute Empresa empresa, Model model){
+        model.addAttribute(empresa);
+        this.empresaService.addEmpresa(empresa);
+        return new RedirectView("/empresas");
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{nit}")
     public Empresa updateEmpresa(@RequestBody Empresa empresa){
         return empresaService.updateEmpresa(empresa);
     }
 
-    @DeleteMapping("/{id}")
-    public Empresa deleteEmpresa(@PathVariable int id){
-        return empresaService.deleteEmpresa(id);
+    @PatchMapping("/{nit}")
+    public RedirectView updateEmpresa(@PathVariable String nit,@ModelAttribute Empresa empresa, Model model){
+        model.addAttribute(empresa);
+        this.empresaService.updateEmpresa(empresa);
+        return new RedirectView("/empresas");
     }
 
+    @DeleteMapping("/{nit}")
+    public RedirectView deleteEmpresa(@ModelAttribute Empresa empresa, Model model){
+        model.addAttribute(empresa);
+        this.empresaService.deleteEmpresa(empresa.getNit());
 
+        return new RedirectView("/empresas");
+    }
 }

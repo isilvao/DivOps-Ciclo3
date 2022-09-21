@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="layouts/layout-main :: head">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -17,33 +17,31 @@
             <table class="table">
                 <theader>
                     <tr>
-                        <th>id Plato</th>
-                        <th>Nombre Plato</th>
-                        <th>Valor</th>
-                        <th>Calorias</th>
-                        <th>Vegetariano</th>
-                        <th>Tipo de Plato</th>
-                        <th>Gestión</th>
+                        <th>NIT Empresa</th>
+                        <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
                     </tr>
                 </theader>
                 <tbody>
-                <tr th:each="dish : ${dishes}">
-                    <td th:text="${dish.id}"></td>
-                    <td th:text="${dish.name}"></td>
-                    <td th:text="${#numbers.formatCurrency(dish.price)}"></td>
-                    <td th:text="${dish.calories}"></td>
-                    <td th:text="${dish.isVegetarian ? 'SI' : 'NO'}"></td>
-                    <td th:text="${dish.listDish.description}"></td>
+                <tr th:each="empresa: ${empresas}">
+                    <td th:text="${empresa.nit}"></td>
+                    <td th:text="${empresa.nombre}"></td>
+                    <td th:text="${empresa.direccion}"></td>
+                    <td th:text="${empresa.telefono}"></td>
+                    <td th:text="${empresa.correo}"></td>
                     <td>
-                        <form th:action="@{/dishes/{id}(id=${dish.id})}" th:method="delete">
+                        <form th:action="@{/Empresas/{nit}(nit=${empresa.nit})}" th:method="delete">
                             <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                        <form th:action="@{/Empresas/{nit}(nit=${empresa.nit})}">
+
                         </form>
                     </td>
                 </tr>
                 </tbody>
             </table>
-
-            <a class="btn btn-primary" href="/views/showForm">Crear Nuevo Plato</a>
         </div>
     </div>
 </div>

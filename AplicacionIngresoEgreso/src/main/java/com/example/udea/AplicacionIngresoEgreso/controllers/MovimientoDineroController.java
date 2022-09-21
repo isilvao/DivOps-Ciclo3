@@ -4,7 +4,6 @@ import com.example.udea.AplicacionIngresoEgreso.entities.MovimientoDinero;
 import com.example.udea.AplicacionIngresoEgreso.services.MovimientoDineroService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
