@@ -2,8 +2,12 @@ package com.example.udea.AplicacionIngresoEgreso.controllers;
 
 import com.example.udea.AplicacionIngresoEgreso.entities.Empleado;
 import com.example.udea.AplicacionIngresoEgreso.entities.Empresa;
+import com.example.udea.AplicacionIngresoEgreso.entities.User;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
+import com.example.udea.AplicacionIngresoEgreso.services.UserService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
@@ -15,61 +19,70 @@ public class ControllerView {
 
     private EmpresaService empresaService;
     private EmpleadoService empleadoService;
+    private UserService userService;
 
-    public ControllerView(EmpresaService empresaService, EmpleadoService empleadoService) {
+    public ControllerView(EmpresaService empresaService, EmpleadoService empleadoService, UserService userService) {
         this.empresaService = empresaService;
         this.empleadoService = empleadoService;
+        this.userService = userService;
     }
 
     @GetMapping()
-    public String index(Model model){
+    public String index(Model model, @AuthenticationPrincipal OidcUser principal){
+        if(principal!=null){
+            User user = this.userService.getOrCreateUser(principal.getClaims());
+            model.addAttribute("user", user);
+            model.addAttribute("profile", principal.getClaims());
+        }
         model.addAttribute("title", "Página principal");
 
         return "index.html";
     }
 
     @GetMapping("/empresas")
-        public String empresas(Model model){
+        public String empresas(Model model, @AuthenticationPrincipal OidcUser principal){
 
         model.addAttribute("title", "Lista de empresas");
         model.addAttribute("empresas", empresaService.getAll());
+        if (principal != null) {
+            model.addAttribute("profile", principal.getClaims());
+        }
 
         return "empresas.html";
     }
 
     @GetMapping("/empleados")
-        public String empleados(Model model){
+        public String empleados(Model model, @AuthenticationPrincipal OidcUser principal){
 
         model.addAttribute("title", "Lista de empleados");
         model.addAttribute("empleados", empleadoService.getAll());
+
+        if (principal != null) {
+            model.addAttribute("profile", principal.getClaims());
+        }
+
         return "empleados.html";
     }
 
     @GetMapping("/quienesSomos")
-    public String quienesSomos (Model model){
+    public String quienesSomos (Model model, @AuthenticationPrincipal OidcUser principal){
         model.addAttribute("title", "Quienes somos");
+
+        if (principal != null) {
+            model.addAttribute("profile", principal.getClaims());
+        }
 
         return "quienesSomos.html";
     }
 
-    @GetMapping("/login")
-    public String login (Model model){
-        model.addAttribute("title", "Iniciar sesión");
-
-        return "login.html";
-    }
-
-    @GetMapping("/register")
-    public String register (Model model){
-        model.addAttribute("title", "Registrarse");
-        model.addAttribute("Empleado", new Empleado());
-        return "register.html";
-    }
-
     @GetMapping("/crearEmpresa")
-    public String crearEmpresa (Model model){
-        model.addAttribute("ids", empresaService.getAll().size()+1);
+    public String crearEmpresa (Model model, @AuthenticationPrincipal OidcUser principal){
         model.addAttribute("Empresa", new Empresa());
+
+        if (principal != null) {
+            model.addAttribute("profile", principal.getClaims());
+        }
+
         return "crearEmpresa.html";
     }
 }

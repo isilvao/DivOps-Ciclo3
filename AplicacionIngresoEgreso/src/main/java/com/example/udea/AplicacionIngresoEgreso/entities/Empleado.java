@@ -6,30 +6,31 @@ import java.util.Objects;
 @Entity
 @Table(name = "empleado")
 public class Empleado {
-    @Id
+    @Id @Column(name="cedula",nullable = false)
     private String cedula;
-    @Column(nullable = false)
+    @Column(name ="nombre", nullable = false)
     private String nombre;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "correo")
     private String correo;
     /***
      * Aquí va el Id de la empresa asociada
      */
     @ManyToOne
-    @JoinColumn(name="empresa_id")
+    @JoinColumn(name = "empresa_nit")
     private Empresa empresa;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "es_admin")
     private boolean esAdministrativo;
-    @Column(nullable = false)
-    private String password;
+    @OneToOne
+    @JoinColumn(nullable = true, name = "user")
+    private User user;
 
-    public Empleado( String cedula, String nombre, String correo, Empresa empresa, boolean esAdministrativo, String password) {
+    public Empleado( String cedula, String nombre, String correo, Empresa empresa, boolean esAdministrativo, User user) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.correo = correo;
         this.empresa = empresa;
         this.esAdministrativo = esAdministrativo;
-        this.password = password;
+        this.user = user;
     }
 
     public Empleado() {
@@ -75,12 +76,11 @@ public class Empleado {
         this.esAdministrativo = esAdministrativo;
     }
 
-    public String getPassword() {
-        return password;
+    public User getUser() {
+        return user;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
@@ -93,7 +93,7 @@ public class Empleado {
 
     @Override
     public int hashCode() {
-        return Objects.hash(cedula, nombre, correo, empresa, esAdministrativo, password);
+        return Objects.hash(cedula, nombre, correo, empresa, esAdministrativo);
     }
 
     @Override
