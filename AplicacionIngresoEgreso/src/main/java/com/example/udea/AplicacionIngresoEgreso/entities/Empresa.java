@@ -1,12 +1,30 @@
 package com.example.udea.AplicacionIngresoEgreso.entities;
 
+import javax.persistence.*;
+import java.util.Objects;
+
+
+@Entity
+@Table(name = "empresa")
 public class Empresa {
-    private String nombre;
+
+    @Column(nullable = false) @Id
     private String nit;
+
+    @Column(nullable = false)
+    private String nombre;
+
+    @Column(nullable = false)
     private String direccion;
+
+    @Column(nullable = false)
     private String telefono;
+
+    @Column(nullable = false)
     private String correo;
 
+    public Empresa() {
+    }
     public Empresa(String nombre, String nit, String direccion, String telefono, String correo) {
         this.nombre = nombre;
         this.nit = nit;
@@ -14,6 +32,8 @@ public class Empresa {
         this.telefono = telefono;
         this.correo = correo;
     }
+
+
     public String getNombre() {
         return nombre;
     }
@@ -52,5 +72,31 @@ public class Empresa {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Empresa empresa = (Empresa) o;
+        return nombre.equals(empresa.nombre) && nit.equals(empresa.nit)
+                && direccion.equals(empresa.direccion) && telefono.equals(empresa.telefono)
+                && correo.equals(empresa.correo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, nit, direccion, telefono, correo);
+    }
+
+    @Override
+    public java.lang.String toString() {
+        return "Empresa{" +
+                ", nombre='" + nombre + '\'' +
+                ", nit='" + nit + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", correo='" + correo + '\'' +
+                '}';
     }
 }
