@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="layouts/layout-main :: head">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -35,11 +35,13 @@
                         <form th:action="@{/Empresas/{nit}(nit=${empresa.nit})}" th:method="delete">
                             <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
+                        <form th:action="@{/Empresas/{nit}(nit=${empresa.nit})}">
+
+                        </form>
                     </td>
                 </tr>
                 </tbody>
             </table>
-            <a class="btn btn-primary" href="/crearEmpresa">Añadir una empresa</a>
         </div>
     </div>
 </div>

@@ -41,6 +41,13 @@ public class EmpresaController {
         return empresaService.updateEmpresa(empresa);
     }
 
+    @PatchMapping("/{nit}")
+    public RedirectView updateEmpresa(@PathVariable String nit,@ModelAttribute Empresa empresa, Model model){
+        model.addAttribute(empresa);
+        this.empresaService.updateEmpresa(empresa);
+        return new RedirectView("/empresas");
+    }
+
     @DeleteMapping("/{nit}")
     public RedirectView deleteEmpresa(@ModelAttribute Empresa empresa, Model model){
         model.addAttribute(empresa);
