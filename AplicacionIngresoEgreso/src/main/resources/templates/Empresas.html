@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="layouts/layout-main :: head">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -17,9 +17,8 @@
             <table class="table">
                 <theader>
                     <tr>
-                        <th>id Empresa</th>
+                        <th>NIT Empresa</th>
                         <th>Nombre</th>
-                        <th>NIT</th>
                         <th>Direccion</th>
                         <th>Telefono</th>
                         <th>Correo</th>
@@ -27,21 +26,22 @@
                 </theader>
                 <tbody>
                 <tr th:each="empresa: ${empresas}">
-                    <td th:text="${empresa.id}"></td>
-                    <td th:text="${empresa.nombre}"></td>
                     <td th:text="${empresa.nit}"></td>
+                    <td th:text="${empresa.nombre}"></td>
                     <td th:text="${empresa.direccion}"></td>
                     <td th:text="${empresa.telefono}"></td>
                     <td th:text="${empresa.correo}"></td>
                     <td>
-                        <form th:action="@{/Empresas/{id}(id=${empresa.id})}" th:method="delete">
+                        <form th:action="@{/Empresas/{nit}(nit=${empresa.nit})}" th:method="delete">
                             <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                        <form th:action="@{/Empresas/{nit}(nit=${empresa.nit})}">
+
                         </form>
                     </td>
                 </tr>
                 </tbody>
             </table>
-            <a class="btn btn-primary" href="/crearEmpresa">Añadir una empresa</a>
         </div>
     </div>
 </div>

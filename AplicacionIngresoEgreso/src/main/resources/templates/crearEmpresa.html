@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="layouts/layout-main :: head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,10 +15,6 @@
             <input th:field="*{nombre}" type="text" class="form-control" placeholder="Nombre" required>
         </div>
         <div class="col-md-6">
-            <label class="form-label">ID</label>
-            <input th:placeholder="${ids}" type="text" class="form-control" readonly>
-        </div>
-        <div class="col-md-6">
             <label class="form-label">NIT</label>
             <input th:field="*{nit}" type="text" class="form-control" placeholder="NIT" required>
         </div>
@@ -30,7 +26,7 @@
             <label class="form-label">Teléfono</label>
             <input th:field="*{telefono}" type="text" class="form-control" placeholder="Teléfono" required>
         </div>
-        <div class="col-md-6">
+        <div class="col-12">
             <label class="form-label">Dirección</label>
             <input th:field="*{direccion}" type="text" class="form-control" placeholder="Dirección" required>
         </div>
