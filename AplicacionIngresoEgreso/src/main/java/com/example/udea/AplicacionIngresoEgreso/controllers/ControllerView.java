@@ -87,16 +87,18 @@ public class ControllerView {
         return "crearEmpresa.html";
     }
 
-    @GetMapping("/updateEmpresa/{nit}")
+    @GetMapping("/empresa/{nit}")
     public String updateEmpresa (Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit){
         model.addAttribute("Empresa", empresaService.findByNit(nit));
         model.addAttribute("title", "Editar empresa");
 
         if (principal != null) {
             model.addAttribute("profile", principal.getClaims());
+            User user = this.userService.getOrCreateUser(principal.getClaims());
+            model.addAttribute("Empleado", userService.empleadoUser(user));
         }
 
-        return "updateEmpresa.html";
+        return "empresa.html";
     }
 }
 

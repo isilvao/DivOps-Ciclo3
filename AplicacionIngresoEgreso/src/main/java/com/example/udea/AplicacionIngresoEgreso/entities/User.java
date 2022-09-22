@@ -1,5 +1,7 @@
 package com.example.udea.AplicacionIngresoEgreso.entities;
 
+import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,12 @@ public class User {
 
     @Column(name = "auth0Id", unique = true)
     private String auth0Id;
+
+
+    @OneToOne
+    @JoinColumn(name = "empleado_cedula")
+    private Empleado empleado;
+
 
     public User(String email, String image, String auth0Id) {
         this.email = email;
@@ -57,5 +65,13 @@ public class User {
 
     public void setAuth0Id(String auth0Id) {
         this.auth0Id = auth0Id;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 }

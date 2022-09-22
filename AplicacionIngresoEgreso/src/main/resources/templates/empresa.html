@@ -11,7 +11,14 @@
 
 <div style="text-align: center">
     <h1>AQUÍ VAN LAS PÁGINAS DE CARLOS</h1>
-    <h2 th:text="${Empresa.nombre}">A</h2>
+    <h2 th:text="${Empresa.nombre}"></h2>
+</div>
+
+<div th:if="${Empleado.isAdmin}">
+    <h1>Es admin</h1>
+</div>
+<div th:unless="${Empleado.isAdmin}">
+    <h1>No es admin</h1>
 </div>
 
 <div th:replace="layouts/layout-main :: footer"></div>
