@@ -1,5 +1,6 @@
 package com.example.udea.AplicacionIngresoEgreso.services;
 
+import com.example.udea.AplicacionIngresoEgreso.entities.Empleado;
 import com.example.udea.AplicacionIngresoEgreso.entities.User;
 import com.example.udea.AplicacionIngresoEgreso.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,9 @@ public class UserService {
             return createUser(newUser);
         }
         return user;
+    }
+
+    public Empleado empleadoUser(User user){
+        return user.getEmpleado();
     }
 }
