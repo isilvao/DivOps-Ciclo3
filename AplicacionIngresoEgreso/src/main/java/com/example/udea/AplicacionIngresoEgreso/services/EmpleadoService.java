@@ -22,6 +22,7 @@ public class EmpleadoService {
     }
 
     public Empleado addEmployee(Empleado empleado) {
+
         return empleadoRepositorio.save(empleado);
     }
 
@@ -45,6 +46,4 @@ public class EmpleadoService {
         }
         return null;
     }
-
-
 }

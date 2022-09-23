@@ -1,7 +1,6 @@
 package com.example.udea.AplicacionIngresoEgreso.controllers;
 
 import com.example.udea.AplicacionIngresoEgreso.entities.Empleado;
-import com.example.udea.AplicacionIngresoEgreso.entities.Empresa;
 import com.example.udea.AplicacionIngresoEgreso.entities.User;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
@@ -76,29 +75,48 @@ public class ControllerView {
         return "quienesSomos.html";
     }
 
-    @GetMapping("/crearEmpresa")
-    public String crearEmpresa (Model model, @AuthenticationPrincipal OidcUser principal){
-        model.addAttribute("Empresa", new Empresa());
-
-        if (principal != null) {
-            model.addAttribute("profile", principal.getClaims());
-        }
-
-        return "crearEmpresa.html";
-    }
-
     @GetMapping("/empresa/{nit}")
     public String updateEmpresa (Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit){
         model.addAttribute("Empresa", empresaService.findByNit(nit));
-        model.addAttribute("title", "Editar empresa");
+        model.addAttribute("title", empresaService.findByNit(nit).getNombre());
 
         if (principal != null) {
             model.addAttribute("profile", principal.getClaims());
             User user = this.userService.getOrCreateUser(principal.getClaims());
-            model.addAttribute("Empleado", userService.empleadoUser(user));
+            // NO SE QUE HACER ACÁ, AYDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            userService.setEmpleadoCedula(user.getEmail(), "1094045398");
+            model.addAttribute("esAdmin", empleadoService.findEmployeeById(user.getEmpleadoCedula()).isEsAdministrativo());
         }
+        else {
+            model.addAttribute("esAdmin", false);
+        }
+        if (nit == "860.025.792-3"){
+            return "Renault.html";
+        }
+        else if (nit == "9014020731"){
+            return "Ferrari.html";
+        }
+        else if (nit == "9009476919"){
+            return "BMW.html";
+        }
+        else{
+            return "empresa.html";
+        }
+    }
 
-        return "empresa.html";
+    @GetMapping("/newEmpleado/{nit}")
+    public String newEmpleado(Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit){
+        model.addAttribute("title", "Nuevo empleado");
+        model.addAttribute("Empleado", new Empleado());
+        model.addAttribute("Empresa", empresaService.findByNit(nit));
+
+        if (principal != null) {
+            model.addAttribute("profile", principal.getClaims());
+            return "newEmpleado.html";
+        }
+        else {
+            return "index.html";
+        }
     }
 }
 
