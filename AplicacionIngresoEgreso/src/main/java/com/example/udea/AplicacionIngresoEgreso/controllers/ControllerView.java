@@ -90,7 +90,7 @@ public class ControllerView {
         else {
             model.addAttribute("esAdmin", false);
         }
-        if (nit == "860.025.792-3"){
+        if (nit == "860025792-3"){
             return "Renault.html";
         }
         else if (nit == "9014020731"){
