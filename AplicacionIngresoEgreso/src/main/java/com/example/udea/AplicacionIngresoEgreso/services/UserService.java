@@ -5,6 +5,7 @@ import com.example.udea.AplicacionIngresoEgreso.entities.User;
 import com.example.udea.AplicacionIngresoEgreso.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -13,6 +14,10 @@ public class UserService {
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    public List<User> getAll() {
+        return userRepository.findAll();
     }
 
     public User findByEmail(String email) {
@@ -39,7 +44,12 @@ public class UserService {
         return user;
     }
 
-    public Empleado empleadoUser(User user){
-        return user.getEmpleado();
+    public User setEmpleadoCedula(String email, String cedula){
+        User user = this.findByEmail(email);
+        if (user != null){
+            user.setEmpleadoCedula(cedula);
+            return this.userRepository.save(user);
+        }
+        return null;
     }
 }

@@ -20,11 +20,15 @@ public class User {
     @Column(name = "auth0Id", unique = true)
     private String auth0Id;
 
+    @Column(name = "empleado_cedula", nullable = true)
+    private String empleadoCedula;
 
-    @OneToOne
-    @JoinColumn(name = "empleado_cedula")
-    private Empleado empleado;
-
+    public User(String email, String image, String auth0Id, String empleadoCedula) {
+        this.email = email;
+        this.image = image;
+        this.auth0Id = auth0Id;
+        this.empleadoCedula = empleadoCedula;
+    }
 
     public User(String email, String image, String auth0Id) {
         this.email = email;
@@ -67,11 +71,11 @@ public class User {
         this.auth0Id = auth0Id;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public String getEmpleadoCedula() {
+        return empleadoCedula;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setEmpleadoCedula(String empleadoCedula) {
+        this.empleadoCedula = empleadoCedula;
     }
 }

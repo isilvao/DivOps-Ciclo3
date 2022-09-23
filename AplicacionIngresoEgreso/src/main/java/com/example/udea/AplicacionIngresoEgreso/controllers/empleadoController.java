@@ -28,7 +28,8 @@ public class empleadoController {
         model.addAttribute(empleado);
         this.empleadoServicio.addEmployee(empleado);
 
-        return new RedirectView("/empleados");
+
+        return new RedirectView("/empresas");
     }
 
     @GetMapping("/{cedula}")

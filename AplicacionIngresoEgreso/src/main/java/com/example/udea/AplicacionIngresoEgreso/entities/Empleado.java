@@ -12,25 +12,19 @@ public class Empleado {
     private String nombre;
     @Column(nullable = false, name = "correo")
     private String correo;
-    /***
-     * Aquí va el Id de la empresa asociada
-     */
-    @ManyToOne
-    @JoinColumn(name = "empresa_nit")
-    private Empresa empresa;
+
+    @Column(name = "empresa_nit")
+    private String empresaNit;
+
     @Column(nullable = false, name = "es_admin")
     private boolean esAdministrativo;
-    @OneToOne
-    @JoinColumn(nullable = true, name = "user")
-    private User user;
 
-    public Empleado( String cedula, String nombre, String correo, Empresa empresa, boolean esAdministrativo, User user) {
+    public Empleado( String cedula, String nombre, String correo, boolean esAdministrativo, String empresaNit) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.correo = correo;
-        this.empresa = empresa;
         this.esAdministrativo = esAdministrativo;
-        this.user = user;
+        this.empresaNit = empresaNit;
     }
 
     public Empleado() {
@@ -60,12 +54,11 @@ public class Empleado {
         this.correo = correo;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
+    public String getEmpresaNit() {
+        return empresaNit;
     }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+    public void setEmpresaNit(String empresaNit) {
+        this.empresaNit = empresaNit;
     }
 
     public boolean isEsAdministrativo() {
@@ -76,24 +69,17 @@ public class Empleado {
         this.esAdministrativo = esAdministrativo;
     }
 
-    public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Empleado empleado = (Empleado) o;
-        return esAdministrativo == empleado.esAdministrativo && cedula.equals(empleado.cedula) && nombre.equals(empleado.nombre) && correo.equals(empleado.correo) && empresa.equals(empleado.empresa);
+        return esAdministrativo == empleado.esAdministrativo && cedula.equals(empleado.cedula) && nombre.equals(empleado.nombre) && correo.equals(empleado.correo) && empresaNit.equals(empleado.empresaNit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cedula, nombre, correo, empresa, esAdministrativo);
+        return Objects.hash(cedula, nombre, correo, empresaNit, esAdministrativo);
     }
 
     @Override
@@ -102,7 +88,7 @@ public class Empleado {
                 "cedula='" + cedula + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", correo='" + correo + '\'' +
-                ", empresa=" + empresa +
+                ", empresaNit=" + empresaNit +
                 ", esAdministrativo=" + esAdministrativo +
                 '}';
     }
