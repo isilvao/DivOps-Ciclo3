@@ -11,31 +11,35 @@
             height: 2px;
         }
     </style>
+    <link rel="stylesheet" href="css/Estilos.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <nav th:fragment="navbar" class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">DivOps</a>
+    <div class="container-fluid" style="background-color: #2F4F4F" th:height="100xp">
+        <a class="navbar-brand" href="/" style="color:#F0FFFF " ><strong><h1>DivOps Car</h1></strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                    <strong><h5> <a class="nav-link active" aria-current="page" href="/" style="color:#F0FFFF ">Inicio</a> </h5></strong>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/empresas">Empresas</a>
+                    <strong><h5> <a class="nav-link active" aria-current="page" href="/empresas" style="color:#F0FFFF ">Empresas</a></h5></strong>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/quienesSomos">¿Quienes somos?</a>
+                    <strong><h5> <a class="nav-link" href="/quienesSomos" style="color:#F0FFFF ">Nosotros</a></h5></strong>
                 </li>
+
             </ul>
-            <div sec:authorize="!isAuthenticated()">
-                <a class="btn btn-primary" style="margin-right: 10px" th:href="@{/oauth2/authorization/auth0}">Login</a>
-                <a class="btn btn-primary" th:href="@{/oauth2/authorization/auth0}">Register</a>
+            <div sec:authorize="!isAuthenticated()" >
+                <a class="btn btn-primary " style="margin-right: 20px" th:href="@{/oauth2/authorization/auth0}">Login</a>
+                <a class="btn btn-primary " style="margin-right: 20px" th:href="@{/oauth2/authorization/auth0}">Register</a>
             </div>
+            <br><br>
             <div sec:authorize="isAuthenticated()">
                 <p th:text="${profile.get('nickname')}"></p>
             </div>
@@ -43,9 +47,44 @@
     </div>
 </nav>
 
-<footer th:fragment="footer" class="text-center mb-5 fixed-bottom line">
-    &copy;2022 Derechos Reservados
+<!-- AQUI INICIA EL PIE DE PAGINA-->
+<footer>
+
+    <div class="container__footer">
+        <div class="box__footer">
+            <div class="logo">
+                <img src="images/Logo.jpg" alt="">
+            </div>
+            <div class="terms">
+                <p>Somos un concesionario especializado en la compra y venta de carros. Desde 1992 asesoramos a nuestros clientes en la compra o venta de carros . Compra o vende tu carro ya, acá te estamos esperando.</p>
+            </div>
+        </div>
+
+        <div class="box__footer">
+            <h2>Compañia</h2>
+            <a href="#">Acerca de</a>
+            <a href="#">Trabajos</a>
+            <a href="#">Procesos</a>
+            <a href="#">Servicios</a>
+        </div>
+
+        <div class="box__footer">
+            <h2>Redes Sociales</h2>
+            <a href="#"> <i class="fab fa-facebook-square"></i> Facebook</a>
+            <a href="#"><i class="fab fa-twitter-square"></i> Twitter</a>
+            <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
+            <a href="#"><i class="fab fa-instagram-square"></i> Instagram</a>
+        </div>
+
+
+    </div>
+
+    <div class="box__copyright">
+        <hr>
+        <p>Todos los derechos reservados © 2022 <b>DivOps Car</b></p>
+    </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
