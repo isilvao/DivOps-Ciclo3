@@ -2,6 +2,7 @@ package com.example.udea.AplicacionIngresoEgreso.controllers;
 
 import com.example.udea.AplicacionIngresoEgreso.entities.Empleado;
 import com.example.udea.AplicacionIngresoEgreso.entities.Empresa;
+import com.example.udea.AplicacionIngresoEgreso.entities.MovimientoDinero;
 import com.example.udea.AplicacionIngresoEgreso.entities.User;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
@@ -54,19 +55,6 @@ public class ControllerView {
         return "empresas.html";
     }
 
-    @GetMapping("/empleados")
-        public String empleados(Model model, @AuthenticationPrincipal OidcUser principal){
-
-        model.addAttribute("title", "Lista de empleados");
-        model.addAttribute("empleados", empleadoService.getAll());
-
-        if (principal != null) {
-            model.addAttribute("profile", principal.getClaims());
-        }
-
-        return "empleados.html";
-    }
-
     @GetMapping("/quienesSomos")
     public String quienesSomos (Model model, @AuthenticationPrincipal OidcUser principal){
         model.addAttribute("title", "Quienes somos");
@@ -80,8 +68,6 @@ public class ControllerView {
 
     @GetMapping("/empresa/{nit}")
     public String updateEmpresa (Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit){
-        model.addAttribute("Empresa", empresaService.findByNit(nit));
-        model.addAttribute("title", empresaService.findByNit(nit).getNombre());
         if (principal != null) {
             model.addAttribute("profile", principal.getClaims());
             User user = this.userService.getOrCreateUser(principal.getClaims());
@@ -107,7 +93,7 @@ public class ControllerView {
             return "BMW.html";
         }
         else{
-            return "empresa.html";
+            return "index.html";
         }
     }
 
@@ -123,6 +109,19 @@ public class ControllerView {
         else {
             return "index.html";
         }
+    }
+
+    @GetMapping("/empresa/{nit}/compras/{nombreCarro}")
+    public String compras(Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit, @PathVariable String nombreCarro){
+        model.addAttribute("title", "Compras");
+        model.addAttribute("Empresa", empresaService.findByNit(nit));
+        model.addAttribute("Carro", nombreCarro);
+        model.addAttribute("empleados", empleadoService.getAll());
+        model.addAttribute("MovimientoDinero", new MovimientoDinero());
+        if (principal != null) {
+            model.addAttribute("profile", principal.getClaims());
+        }
+        return "compras.html";
     }
 }
 

@@ -2,7 +2,10 @@ package com.example.udea.AplicacionIngresoEgreso.controllers;
 
 import com.example.udea.AplicacionIngresoEgreso.entities.MovimientoDinero;
 import com.example.udea.AplicacionIngresoEgreso.services.MovimientoDineroService;
+
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -22,8 +25,10 @@ public class MovimientoDineroController {
     }
 
     @PostMapping
-    public MovimientoDinero addMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero) {
-        return movimientoDineroService.addMovimiento(movimientoDinero);
+    public RedirectView addMovimientoDinero(Model model, @ModelAttribute MovimientoDinero movimientoDinero) {
+        movimientoDinero.setMonto(860360778.40);
+        this.movimientoDineroService.addMovimiento(movimientoDinero);
+        return new RedirectView("/empresas");
     }
 
     @GetMapping("/{id}")

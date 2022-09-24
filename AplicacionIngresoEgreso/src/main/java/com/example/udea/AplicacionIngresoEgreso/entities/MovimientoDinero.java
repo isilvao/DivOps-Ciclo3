@@ -12,15 +12,14 @@ public class MovimientoDinero {
     private double monto;
     @Column(nullable = false)
     private String concepto;
-    @ManyToOne
-    @JoinColumn(name = "empleado_id")
-    private Empleado empleado;
+    @Column(nullable = true)
+    private String cedula;
 
-    public MovimientoDinero(int id, double monto, String concepto, Empleado empleado) {
+    public MovimientoDinero(int id, double monto, String concepto, String cedula) {
         this.id = id;
         this.monto = monto;
         this.concepto = concepto;
-        this.empleado = empleado;
+        this.cedula = cedula;
     }
 
     public MovimientoDinero() {
@@ -50,11 +49,11 @@ public class MovimientoDinero {
         this.concepto = concepto;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 }
