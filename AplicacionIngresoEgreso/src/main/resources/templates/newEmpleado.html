@@ -9,7 +9,7 @@
 <body>
 <header th:insert="layouts/layout-main :: navbar"></header>
   <div class="container">
-    <form th:action="@{/Empleados}" th:method="post" th:object="${Empleado}" class="py-5 row g-3">
+    <form th:action="@{/Empleados/{nit}(nit=${Empresa.nit})}" th:method="post" th:object="${Empleado}" class="py-5 row g-3">
       <div class="col-md-6">
         <label class="form-label">Cedula</label>
         <input th:field="*{cedula}" type="text" class="form-control" placeholder="Cedula" required>
@@ -27,14 +27,12 @@
         <input th:placeholder="${Empresa.nombre}" type="text" class="form-control" readonly>
       </div>
       <div class="col-md-6">
-        <label class="form-label">NIT de la empresa</label>
-        <!-- PREGUNTARLE AL PROFESORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
-         Como hacer para que aparezca un valor en el input y cómo guardar ese mismo valor -->
-        <input th:field="${Empresa.nit}" type="text" class="form-control" readonly>
+        <label for="NitE" class="form-label">NIT de la empresa</label>
+        <input id="NitE" th:field="${Empresa.nit}" type="text" class="form-control" readonly>
       </div>
       <div class="col-12">
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="esAdministrador">
+          <input th:field="*{esAdministrativo}" type="checkbox" class="form-check-input" id="esAdministrador">
             <label for="esAdministrador">Es administrador</label>
         </div>
       </div>

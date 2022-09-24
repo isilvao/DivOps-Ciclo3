@@ -23,11 +23,11 @@ public class empleadoController {
         return empleadoServicio.getAll();
     }
 
-    @PostMapping
-    public RedirectView addEmployee(@ModelAttribute Empleado empleado, Model model) {
+    @PostMapping("/{nit}")
+    public RedirectView addEmployee(@PathVariable String nit,@ModelAttribute Empleado empleado, Model model) {
         model.addAttribute(empleado);
+        empleado.setEmpresaNit(nit);
         this.empleadoServicio.addEmployee(empleado);
-
 
         return new RedirectView("/empresas");
     }
