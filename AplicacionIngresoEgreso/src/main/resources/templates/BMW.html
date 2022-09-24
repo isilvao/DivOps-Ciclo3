@@ -15,15 +15,19 @@
         <div class="card-body">
             <h5 class="card-title">iX</h5>
             <p class="card-text">Con dos poderosos motores eléctricos y la sistema eléctrico de tracción a los cuatro ruedas BMW xDrive, la BMW iX ofrece una extraordinario rendimiento eléctrico: una potencia de 523 HP* impulsa la BMW iX xDrive50 de 0 a 100 km/h en 4,6 segundos.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/iX/iX.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
         <img src="/img/M235ixDriveGranCoupé.png" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">M235i xDrive Gran Coupé</h5>
+            <h5 class="card-title">M235i xDrive Gran Coupe</h5>
             <p class="card-text">Está diseñado de manera contundente para dinamismo de conducción en cada aspecto. Desde la distintiva parte frontal de la parrilla de riñón BMW en diseño de malla hasta los acabados de forma libre del sistema de escape en la potente parte trasera – un atleta de pies a cabeza. </p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/M235 ix Drive Gran Coupe/M235ixDriveGranCoupé.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
@@ -31,7 +35,9 @@
         <div class="card-body">
             <h5 class="card-title">Serie 4 Coupé</h5>
             <p class="card-text">El nuevo BMW Serie 4 Coupé deja a un lado con decisión y elegancia las convenciones existentes. El diseño independiente y la silueta clásica de coupé evocan iconos y, al mismo tiempo, subrayan su carácter avanzado. </p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/Duster/serie4Coupé.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
@@ -39,7 +45,9 @@
         <div class="card-body">
             <h5 class="card-title">Serie 1</h5>
             <p class="card-text">El BMW Serie 1 totalmente nuevo llegó para robar miradas. Esto se debe a su diseño inigualable y su lenguaje progresista que lo distinguen a primera vista entre la multitud.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/Duster/serie1.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 3%; margin-top: 4%; margin-right:1%">
@@ -47,7 +55,9 @@
         <div class="card-body">
             <h5 class="card-title">Z4 roadster</h5>
             <p class="card-text">En 4,5 segundos cargados de adrenalina, los 340 CV del motor de gasolina de 6 cilindros M TwinPower Turbo aceleran el BMW Z4 Roadster de 0 a 100 km / h. No hay una forma más deportiva de lograr ese sentimiento de perfecta libertad. </p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/Duster/BMWZ4Roadster.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
 

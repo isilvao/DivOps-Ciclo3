@@ -15,7 +15,9 @@
         <div class="card-body">
             <h5 class="card-title">Purosangue</h5>
             <p class="card-text">El Ferrari Purosangue es un SUV deportivo de muy altas prestaciones, del segmento F. El Ferrari Purosangue se caracteriza por tratarse de un SUV deportivo y de lujo, con un motor V12 de 725 CV, 4 puertas. </p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/Purosangue/Purosangue.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
@@ -23,7 +25,9 @@
         <div class="card-body">
             <h5 class="card-title">812GTS</h5>
             <p class="card-text">El Ferrari 812 GTS es un superdeportivo descapotable de 800 CV, fabricado por Ferrari desde 2019. Monta un motor V12 a 65º en posición delantero-central que desarrolla 800 CV a 8.500 rpm y un par máximo de 718 Nm</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/812GTS/812GTS.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
@@ -31,7 +35,9 @@
         <div class="card-body">
             <h5 class="card-title">296 GTB</h5>
             <p class="card-text">Los Ferrari 296 se caracterizan por contar con un diseño arrebatador y ofrecer unas prestaciones que le coronan como uno de los deportivos más rápidos del mundo, gracias a una mecánica híbrida enchufable con 830 CV</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/296 GTB/296GTB.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
@@ -39,59 +45,21 @@
         <div class="card-body">
             <h5 class="card-title">SF90 STRADALE</h5>
             <p class="card-text">El Ferrari SF90 se caracteriza por ser el primer híbrido enchufable de Ferrari, con 1.000 CV de potencia y una autonomía en modo eléctrico puro de 25 kilómetros. La carga aerodinámica máxima es de 390 Kg a 250 Km/h.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/SF90 STRADALE/SF90stradale.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
-    <div class="card" style="width: 18rem; float:left; margin-left: 3%; margin-top: 4%; margin-right:1%">
-        <img src="/img/F8tributo.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">F8 Tributo</h5>
-            <p class="card-text">El nombre de F8 Tributo es un homenaje a toda la saga de Ferrari V8 centrales que han precedido a este modelo, precisamente es de ellos que mantiene buena parte de esa filosofía que combina la elegancia del diseño italiano con la agresividad. </p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-        </div>
-    </div>
-
-        <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
-            <img src="/img/F8spider.png" class="card-img-top" alt="...">
+        <div class="card" style="width: 18rem; float:left; margin-left: 3%; margin-top: 4%; margin-right:1%">
+            <img src="/img/F8tributo.png" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">F8 Spider</h5>
-                <p class="card-text"> Con un motor 3.9 V8 Twin-Turbo de 720 CV a 8.000 rpm y 770 Nm a 3.250 rpm. Cuenta con 50 CV más . Se prescinde prácticamente de todo lo superfluo en un automóvil deportivo para que el conductor pueda centrarse únicamente en la conducción </p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title">F8 Tributo</h5>
+                <p class="card-text">El nombre de F8 Tributo es un homenaje a toda la saga de Ferrari V8 centrales que han precedido a este modelo, precisamente es de ellos que mantiene buena parte de esa filosofía que combina la elegancia del diseño italiano con la agresividad. </p>
+                <form th:action="@{/empresa/{nit}/compras/F8 Tributo/F8tributo.png (nit=${Empresa.nit})}" th:method="get">
+                    <button type="submit" class="btn btn-primary">Comprar</button>
+                </form>
             </div>
         </div>
-        <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
-            <img src="/img/roma.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Roma</h5>
-                <p class="card-text">Ferrari emplea para el Roma una configuración clásica de GT, esto quiere decir que nos encontramos con un motor 3.9 V8 Twin-Turbo colocado en posición delantera central.  La potencia máxima del Roma es de 620 CV entre 5.750 y 7.500 rpm.</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%; margin-bottom: 4%">
-            <img src="/img/portofinoM.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Portofino M</h5>
-                <p class="card-text"> Encontramos un propulsor V8 Twin-Turbo de 3.855 centímetros cúbicos que desarrolla una potencia máxima de 620 CV entre las 5.750 y las 7.500 rpm</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
-            <img src="/img/812competizione.png" class="card-img-top" alt="...">  
-            <div class="card-body">
-                <h5 class="card-title">812 competizione</h5>
-                <p class="card-text">Tiene un propulsor de 12 cilindros en V con 6,5 litros de cubicaje con una potencia máxima de 830 CV y un par máximo de 692 Nm. el Ferrari 812 Competizione realiza el 0-100 Km/h en 2,85 segundos y alcanza una velocidad máxima de 340 Km/h.</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%; margin-right:1%">
-            <img src="/img/daytonasp3.png" class="card-img-top"alt="">
-            <div class="card-body">
-                <h5 class="card-title">Dayton SP3</h5>
-                <p class="card-text">El interior se muestra tan racing como el exterior, con unos asientos que van integrados en el chasis formando una única pieza que integra la consola central mientras, y es que como ya ocurría en el LaFerrari los asientos no son regulables, sino que tendremos que ajustar los pedales y el volante. </p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-            </div>
-        </div>
-
     <div sec:authorize="isAuthenticated()" style="margin-bottom: 5%; margin-top: 0%">
         <div th:if="${esAdmin}" style="text-align: center; width:50%; height:50%">
             <h1 style="text-align: center">Es administrador</h1>

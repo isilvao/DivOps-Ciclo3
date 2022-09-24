@@ -68,6 +68,7 @@ public class ControllerView {
 
     @GetMapping("/empresa/{nit}")
     public String updateEmpresa (Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit){
+        model.addAttribute("Empresa", empresaService.findByNit(nit));
         if (principal != null) {
             model.addAttribute("profile", principal.getClaims());
             User user = this.userService.getOrCreateUser(principal.getClaims());
@@ -111,13 +112,14 @@ public class ControllerView {
         }
     }
 
-    @GetMapping("/empresa/{nit}/compras/{nombreCarro}")
-    public String compras(Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit, @PathVariable String nombreCarro){
+    @GetMapping("/empresa/{nit}/compras/{nombreCarro}/{referencia}")
+    public String compras(Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit, @PathVariable String nombreCarro, @PathVariable String referencia){
         model.addAttribute("title", "Compras");
         model.addAttribute("Empresa", empresaService.findByNit(nit));
         model.addAttribute("Carro", nombreCarro);
         model.addAttribute("empleados", empleadoService.getAll());
         model.addAttribute("MovimientoDinero", new MovimientoDinero());
+        model.addAttribute("referencia", referencia);
         if (principal != null) {
             model.addAttribute("profile", principal.getClaims());
         }

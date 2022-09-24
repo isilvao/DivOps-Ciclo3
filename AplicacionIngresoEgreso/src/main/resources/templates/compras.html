@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="layouts/layout-main :: head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="card" style="width: 25rem;">
-                <img class="card-img-top" src="https://www.elcarrocolombiano.com/wp-content/uploads/2019/12/20191225-SUV-FERRARI-PURASANGUE-AA05.jpg" alt="Card image cap">
+                <img class="card-img-top" th:src="@{/img/{referencia} (referencia=${referencia})}" alt="...">
                 <div class="card-body">
                   <h5 class="card-title" th:text="${Carro}"></h5>
                   <div class="container text-center">

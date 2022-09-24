@@ -8,22 +8,26 @@
 </head>
 <body>
     <header th:insert="layouts/layout-main :: navbar"></header>
-    <center><h1 style="font-family: Times New">Modelos Renault</h1><center/>
+    <h1 style="font-family: Times New">Modelos Renault</h1>
 
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
         <img src="/img/sandero.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Sandero</h5>
             <p class="card-text">Disfruta de la gran potencia de un motor de 111HP* en todos tus trayectos, con un menor consumo. Al cumplir con el estándar EURO5 genera menos emisiones de gases contaminantes. El Renault SANDERO está equipado de serie con 4 airbags.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/Sandero/sandero.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
-        <img src="/img/Logan.png" class="card-img-top" alt="...">
+        <img src="/img/logan.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Logan</h5>
             <p class="card-text">LOGAN reinventa su estilo. La parrilla frontal negra resalta sus faros diurnos con tecnología LED brindando más visibilidad y le dan un mayor estilo. Con la nueva caja CVT X-Tronic, disfrutarás del camino.​</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/Logan/logan.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
@@ -31,7 +35,9 @@
         <div class="card-body">
             <h5 class="card-title">Kwid</h5>
             <p class="card-text">En el exterior, hay una nueva parrilla delantera, faros delanteros y traseros con tecnología LED, y rines de aluminio diamantados de 14”.*  En el interior, totalmente renovado con nuevos acabados, cuadro de instrumentos con indicadores digitales.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/Kwid/kwid.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
@@ -39,7 +45,9 @@
         <div class="card-body">
             <h5 class="card-title">Duster</h5>
             <p class="card-text">La camioneta para esas personas imparables que buscan nuevas experiencias, redescubriendo los caminos de nuestro país de una forma atrevida, conectados y con espíritu aventurero.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/Duster/duster.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 3%; margin-top: 4%; margin-right:1%">
@@ -47,7 +55,9 @@
         <div class="card-body">
             <h5 class="card-title">Twizy</h5>
             <p class="card-text">Renault TWIZY reinventa la movilidad eléctrica. Disfruta una conducción suave con cero emisiones, sin ruido del motor y sin necesidad de hacer cambios de velocidades. El Renault TWIZY tiene un baúl de 31L y una carga útil de 115 kg.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <form th:action="@{/empresa/{nit}/compras/Twizy/twizy.png (nit=${Empresa.nit})}" th:method="get">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
 
