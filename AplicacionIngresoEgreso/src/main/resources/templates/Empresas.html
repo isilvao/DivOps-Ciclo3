@@ -8,10 +8,10 @@
 <body>
 <header th:insert="layouts/layout-main :: navbar"></header>
 
-<div class="container">
+<br><br><div class="container">
     <div class="card">
-        <div class="card-header">
-            <h1 th:text="${title}">xdxdxdxd</h1>
+        <div class="card-header" style="background-color: #2F4F4F">
+            <h1 th:text="${title}" style="color:#F0FFFF "><strong> asociadas</strong></h1>
         </div>
         <div class="card-body">
             <table class="table" style="text-align: center;">
@@ -43,6 +43,7 @@
         </div>
     </div>
 </div>
+<br><br>
 
 <span th:replace="layouts/layout-main :: footer"></span>
 </body>

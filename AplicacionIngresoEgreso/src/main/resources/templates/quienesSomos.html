@@ -9,21 +9,36 @@
 <body>
 <header th:insert="layouts/layout-main :: navbar">
 </header>
-
+<br><br>
 <div class="container">
     <div class="card">
-        <div class="card-header">
-            <h1 th:text="${title}">¿Quienes somos?</h1>
+        <div class="card-header" style="background-color: #2F4F4F"  >
+            <h1 th:text="${title}" style="color:#F0FFFF " ><strong> ¿Quienes somos?</strong></h1>
         </div>
         <div class="card-body">
-                <pre>
-                Estudiantes del ciclo 3 del curso ofertado por MinTIC en asociación
-                con la Universidad de Antioquia.
-                </pre>
+
+        DivOps Car es la empresa líder en Bogotá en la compra y venta de vehículos nuevos y usados, con el respaldo de 30  años de experiencia honesta, profesional e idónea.
+        Nos especializamos en asesorar a nuestros clientes en su decisión de compra y venta de vehículos, con el fin de hacer de su elección la más óptima posible.
+        Contamos con tres concesionarios localizados en el norte, centro y sur de Bogotá. Ver.
+
+        <br><br><strong><h1>Mision </h1></strong>
+
+        Nuestra firma está dedicada a asesorar en la compra, venta y consignación de vehículos , de la mano de personal altamente experimentado y calificado.
+        Contamos con un portafolio de vehículos cuidadosamente seleccionado para garantizarle a nuestros clientes un estándar de calidad y seguridad en la compra.
+
+        <br><br><strong><h1>Vision </h1></strong>
+
+        Continuar siendo líderes en el mercado de vehículos, siendo una empresa reconocida y posicionada a nivel nacional por su excelente servicio al cliente y ofreciendo
+        las mejores alternativas del mercado. AUTOEXPO es miembro fundador de DivOps Car, entidad que agrupa a las empresas formales más importantes en la comercialización de vehículos,
+        con la finalidad, entre otras, de fijar los justos y reales precios de los mismos, ya que dentro de sus funciones esta la de actualizar permanentemente los valores de acuerdo
+        con la situación del mercado.<br><br>
+
+        <br><br><img src="images/PiePagina.jpg" class="d-block w-100" alt="...">
+
         </div>
     </div>
 </div>
-
+<br><br>
 <div th:replace="layouts/layout-main :: footer"></div>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
