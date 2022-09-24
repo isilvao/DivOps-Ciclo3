@@ -72,12 +72,12 @@ public class ControllerView {
         if (principal != null) {
             model.addAttribute("profile", principal.getClaims());
             User user = this.userService.getOrCreateUser(principal.getClaims());
-
             List<Empleado> empleados = empleadoService.getAll();
             for (Empleado empleado : empleados) {
                 if (empleado.getCorreo().equals(user.getEmail())) {
                     userService.setEmpleadoCedula(user.getEmail(), empleado.getCedula());
                     model.addAttribute("esAdmin", empleadoService.findEmployeeById(user.getEmpleadoCedula()).isEsAdministrativo());
+                    model.addAttribute("empleado", empleadoService.findEmployeeById(user.getEmpleadoCedula()));
                 }
             }
         }

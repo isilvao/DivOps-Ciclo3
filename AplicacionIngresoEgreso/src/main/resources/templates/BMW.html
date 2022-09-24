@@ -7,29 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body>
+    
     <header th:insert="layouts/layout-main :: navbar"></header>
-    <center><h1 style="font-family: Times New">Modelos BMW</h1><center/>
-
-    <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
-        <img src="/img/iX.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">iX</h5>
-            <p class="card-text">Con dos poderosos motores eléctricos y la sistema eléctrico de tracción a los cuatro ruedas BMW xDrive, la BMW iX ofrece una extraordinario rendimiento eléctrico: una potencia de 523 HP* impulsa la BMW iX xDrive50 de 0 a 100 km/h en 4,6 segundos.</p>
-            <form th:action="@{/empresa/{nit}/compras/iX/iX.png (nit=${Empresa.nit})}" th:method="get">
-                <button type="submit" class="btn btn-primary">Comprar</button>
-            </form>
+    <h1 style="font-family: Times New; text-align: center">Modelos BMW</h1>
+        <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
+            <img src="/img/iX.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">iX</h5>
+                <p class="card-text">Con dos poderosos motores eléctricos y la sistema eléctrico de tracción a los cuatro ruedas BMW xDrive, la BMW iX ofrece una extraordinario rendimiento eléctrico: una potencia de 523 HP* impulsa la BMW iX xDrive50 de 0 a 100 km/h en 4,6 segundos.</p>
+                <form th:action="@{/empresa/{nit}/compras/iX/iX.png (nit=${Empresa.nit})}" th:method="get">
+                    <button type="submit" class="btn btn-primary">Comprar</button>
+                </form>
+            </div>
         </div>
-    </div>
-    <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
-        <img src="/img/M235ixDriveGranCoupé.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">M235i xDrive Gran Coupe</h5>
-            <p class="card-text">Está diseñado de manera contundente para dinamismo de conducción en cada aspecto. Desde la distintiva parte frontal de la parrilla de riñón BMW en diseño de malla hasta los acabados de forma libre del sistema de escape en la potente parte trasera – un atleta de pies a cabeza. </p>
-            <form th:action="@{/empresa/{nit}/compras/M235 ix Drive Gran Coupe/M235ixDriveGranCoupé.png (nit=${Empresa.nit})}" th:method="get">
-                <button type="submit" class="btn btn-primary">Comprar</button>
-            </form>
+        <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
+            <img src="/img/M235ixDriveGranCoupé.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">M235i xDrive Gran Coupe</h5>
+                <p class="card-text">Está diseñado de manera contundente para dinamismo de conducción en cada aspecto. Desde la distintiva parte frontal de la parrilla de riñón BMW en diseño de malla hasta los acabados de forma libre del sistema de escape en la potente parte trasera – un atleta de pies a cabeza. </p>
+                <form th:action="@{/empresa/{nit}/compras/M235 ix Drive Gran Coupe/M235ixDriveGranCoupé.png (nit=${Empresa.nit})}" th:method="get">
+                    <button type="submit" class="btn btn-primary">Comprar</button>
+                </form>
+            </div>
         </div>
-    </div>
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
         <img src="/img/serie4Coupé.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -61,25 +61,21 @@
         </div>
     </div>
 
- 
-    <div sec:authorize="isAuthenticated()" style="margin-bottom: 5%; margin-top: 0%">
-        <div th:if="${esAdmin}" style="text-align: center; width:20%; height:50%">
-            <h1 style="text-align: center">Es administrator</h1>
-    
-            <div style="text-align: center;">
-                <form th:action="@{/newEmpleado/{nit} (nit=${Empresa.nit})}" th:method="get">
-                    <button type="submit" class="btn btn-primary">Nuevo Empleado</button>
-                </form>
-            </div>
-        </div>
-        <div th:unless="${esAdmin}">
-            <h1>No es administrador</h1>
 
-    
+    <div sec:authorize="isAuthenticated()" style="margin-bottom: 5%; margin-top: 0%">
+        <div th:if="${empleado.empresaNit} == ${Empresa.nit}">
+            <div th:if="${esAdmin}" style="text-align: center; width:20%; height:50%">
+                <div style="text-align: center;">
+                    <form th:action="@{/newEmpleado/{nit} (nit=${Empresa.nit})}" th:method="get">
+                        <button type="submit" class="btn btn-primary">Nuevo Empleado</button>
+                    </form>
+                </div>
+                <div th:unless="${esAdmin}"></div>
+            </div>
         </div>
     </div>
 
-<div th:replace="layouts/layout-main :: footer"></div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

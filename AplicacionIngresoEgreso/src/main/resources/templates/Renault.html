@@ -8,7 +8,7 @@
 </head>
 <body>
     <header th:insert="layouts/layout-main :: navbar"></header>
-    <h1 style="font-family: Times New">Modelos Renault</h1>
+    <h1 style="font-family: Times New; text-align: center;">Modelos Renault</h1>
 
     <div class="card" style="width: 18rem; float:left; margin-left: 2.5%; margin-top: 4%">
         <img src="/img/sandero.png" class="card-img-top" alt="...">
@@ -61,25 +61,18 @@
         </div>
     </div>
 
-
     <div sec:authorize="isAuthenticated()" style="margin-bottom: 5%; margin-top: 0%">
-        <div th:if="${esAdmin}" style="text-align: center; width:20%; height:50%">
-            <h1 style="text-align: center">Es administrator</h1>
-    
-            <div style="text-align: center;">
-                <form th:action="@{/newEmpleado/{nit} (nit=${Empresa.nit})}" th:method="get">
-                    <button type="submit" class="btn btn-primary">Nuevo Empleado</button>
-                </form>
+        <div th:if="${empleado.empresaNit} == ${Empresa.nit}">
+            <div th:if="${esAdmin}" style="text-align: center; width:20%; height:50%">
+                <div style="text-align: center;">
+                    <form th:action="@{/newEmpleado/{nit} (nit=${Empresa.nit})}" th:method="get">
+                        <button type="submit" class="btn btn-primary">Nuevo Empleado</button>
+                    </form>
+                </div>
+                <div th:unless="${esAdmin}"></div>
             </div>
         </div>
-        <div th:unless="${esAdmin}">
-            <h1>No es administrador</h1>
-
-    
-        </div>
     </div>
-
-<div th:replace="layouts/layout-main :: footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
