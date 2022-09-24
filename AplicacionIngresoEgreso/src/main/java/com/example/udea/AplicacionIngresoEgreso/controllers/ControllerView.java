@@ -90,13 +90,13 @@ public class ControllerView {
         else {
             model.addAttribute("esAdmin", false);
         }
-        if (nit == "860.025.792-3"){
+        if (nit.equals("860025792-3")){
             return "Renault.html";
         }
-        else if (nit == "9014020731"){
+        else if (nit.equals("9014020731")){
             return "Ferrari.html";
         }
-        else if (nit == "9009476919"){
+        else if (nit.equals("9009476919")){
             return "BMW.html";
         }
         else{
