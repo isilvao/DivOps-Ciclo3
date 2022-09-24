@@ -4,45 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58866759-9db3-4b43-a668-1d5df47d5d92" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/css/Estilos.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/Chevrolet1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/Chevrolet2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/Ferrari1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/Ferrari2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/Financiacion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/PiePagina.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/Renault1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/Renault2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/Seguro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/Servicio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/background-footer.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/static/images/background-footer.svg" afterDir="false" />
+    <list default="true" id="c39a3224-97e5-4b76-b06f-a6119283cfc2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/templates/Empresas.html" beforeDir="false" afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/templates/Empresas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/templates/layouts/layout-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/templates/layouts/layout-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/templates/quienesSomos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AplicacionIngresoEgreso/src/main/resources/templates/quienesSomos.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
-  <component name="JpbToolWindowState">
-    <option name="myId2FirstActivated">
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="$PROJECT_DIR$/.." value="CamilaCap" />
       </map>
     </option>
-    <option name="myId2Visible">
-      <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
-      </map>
-    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -50,12 +35,13 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2EQ5vczJTupwPB6ycoC6kdSBZRE" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectId" id="2ExFnEnrP8x2zoEoXkNNvY7aSpw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -65,21 +51,36 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ToolWindowRun.ShowToolbar": "false",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/DivOps-Ciclo3",
+    "last_opened_file_path": "C:/Users/Juli - Ivan/Documents/GitHub/DivOps-Ciclo3",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "8a9c04e626fb0a90bfef55e08aff69f6"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Juli - Ivan\Documents\GitHub\DivOps-Ciclo3\AplicacionIngresoEgreso\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Juli - Ivan\Documents\GitHub\DivOps-Ciclo3\AplicacionIngresoEgreso\src\main\resources\static\css" />
+      <recent name="C:\Users\Juli - Ivan\Documents\GitHub\DivOps-Ciclo3\AplicacionIngresoEgreso\src\main\resources\templates" />
+      <recent name="C:\Users\Juli - Ivan\Documents\GitHub\DivOps-Ciclo3\AplicacionIngresoEgreso\src\main\resources\static.css" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="AplicacionIngresoEgresoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="AplicacionIngresoEgreso" />
@@ -92,23 +93,37 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="58866759-9db3-4b43-a668-1d5df47d5d92" name="Changes" comment="" />
-      <created>1662515200142</created>
+      <changelist id="c39a3224-97e5-4b76-b06f-a6119283cfc2" name="Changes" comment="" />
+      <created>1663529498906</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1662515200142</updated>
-      <workItem from="1662515202773" duration="620000" />
-      <workItem from="1662515904366" duration="64000" />
-      <workItem from="1663529336134" duration="155000" />
-      <workItem from="1663944203118" duration="7154000" />
-      <workItem from="1663976409512" duration="19150000" />
-      <workItem from="1664034033532" duration="897000" />
-      <workItem from="1664035990826" duration="3840000" />
+      <updated>1663529498906</updated>
+      <workItem from="1663529502097" duration="964000" />
+      <workItem from="1663530499005" duration="1473000" />
+      <workItem from="1663532204264" duration="18000" />
+      <workItem from="1663596767481" duration="16268000" />
+      <workItem from="1663628737363" duration="11575000" />
+      <workItem from="1663718465828" duration="2603000" />
+      <workItem from="1663732965086" duration="595000" />
+      <workItem from="1663772671447" duration="17247000" />
+      <workItem from="1663801974287" duration="9634000" />
+      <workItem from="1663858557451" duration="13220000" />
+      <workItem from="1663963345379" duration="4402000" />
+      <workItem from="1663973570925" duration="5098000" />
+      <workItem from="1663980988603" duration="3423000" />
+      <workItem from="1663994265290" duration="8181000" />
+      <workItem from="1664040650702" duration="2557000" />
+      <workItem from="1664045492418" duration="343000" />
+      <workItem from="1664046713148" duration="2519000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
