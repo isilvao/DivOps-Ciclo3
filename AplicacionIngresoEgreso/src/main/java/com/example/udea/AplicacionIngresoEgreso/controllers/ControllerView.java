@@ -1,6 +1,7 @@
 package com.example.udea.AplicacionIngresoEgreso.controllers;
 
 import com.example.udea.AplicacionIngresoEgreso.entities.Empleado;
+import com.example.udea.AplicacionIngresoEgreso.entities.Empresa;
 import com.example.udea.AplicacionIngresoEgreso.entities.User;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -79,13 +82,17 @@ public class ControllerView {
     public String updateEmpresa (Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit){
         model.addAttribute("Empresa", empresaService.findByNit(nit));
         model.addAttribute("title", empresaService.findByNit(nit).getNombre());
-
         if (principal != null) {
             model.addAttribute("profile", principal.getClaims());
             User user = this.userService.getOrCreateUser(principal.getClaims());
-            // NO SE QUE HACER ACÁ, AYDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-            userService.setEmpleadoCedula(user.getEmail(), "1021393606");
-            model.addAttribute("esAdmin", empleadoService.findEmployeeById(user.getEmpleadoCedula()).isEsAdministrativo());
+
+            List<Empleado> empleados = empleadoService.getAll();
+            for (Empleado empleado : empleados) {
+                if (empleado.getCorreo().equals(user.getEmail())) {
+                    userService.setEmpleadoCedula(user.getEmail(), empleado.getCedula());
+                    model.addAttribute("esAdmin", empleadoService.findEmployeeById(user.getEmpleadoCedula()).isEsAdministrativo());
+                }
+            }
         }
         else {
             model.addAttribute("esAdmin", false);
@@ -109,7 +116,6 @@ public class ControllerView {
         model.addAttribute("title", "Nuevo empleado");
         model.addAttribute("Empleado", new Empleado());
         model.addAttribute("Empresa", empresaService.findByNit(nit));
-
         if (principal != null) {
             model.addAttribute("profile", principal.getClaims());
             return "newEmpleado.html";
