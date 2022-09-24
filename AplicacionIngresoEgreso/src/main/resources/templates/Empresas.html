@@ -6,8 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-<header th:insert="layouts/layout-main :: navbar">
-</header>
+<header th:insert="layouts/layout-main :: navbar"></header>
 
 <br><br><div class="container">
     <div class="card">
@@ -33,11 +32,8 @@
                     <td th:text="${empresa.direccion}"></td>
                     <td th:text="${empresa.telefono}"></td>
                     <td th:text="${empresa.correo}"></td>
-                    <td style="display: flex; translate: 45px;">
-                        <form th:action="@{/Empresas/{nit}(nit=${empresa.nit})}" th:method="delete">
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                        </form>
-                        <form th:action="@{/empresa/{nit} (nit=${empresa.nit})}" th:method="get" style="margin-left: 5px;">
+                    <td>
+                        <form th:action="@{/empresa/{nit} (nit=${empresa.nit})}" th:method="get">
                             <button type="submit" class="btn btn-primary">Visitar</button>
                         </form>
                     </td>
@@ -47,8 +43,7 @@
         </div>
     </div>
 </div>
-<br><br>
 
-<span th:replace="layouts/layout-main :: footer"></span>
+<div th:replace="layouts/layout-main :: footer"></div>
 </body>
 </html>

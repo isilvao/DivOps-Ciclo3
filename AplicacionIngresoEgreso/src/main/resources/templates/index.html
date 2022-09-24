@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="layouts/layout-main :: head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,8 +8,8 @@
 </head>
 <body>
 <header th:insert="layouts/layout-main :: navbar"></header>
-
-<br><br><div class="container">
+<br><br>
+<div class="container">
     <div class="card">
         <div class="card-header" style="background-color: #2F4F4F">
             <h1 th:text="${title} " style="color:#F0FFFF " ><strong> Página principal</strong></h1>

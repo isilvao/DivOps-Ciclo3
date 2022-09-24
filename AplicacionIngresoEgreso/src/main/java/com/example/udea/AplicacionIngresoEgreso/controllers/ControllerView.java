@@ -1,6 +1,8 @@
 package com.example.udea.AplicacionIngresoEgreso.controllers;
 
 import com.example.udea.AplicacionIngresoEgreso.entities.Empleado;
+import com.example.udea.AplicacionIngresoEgreso.entities.Empresa;
+import com.example.udea.AplicacionIngresoEgreso.entities.MovimientoDinero;
 import com.example.udea.AplicacionIngresoEgreso.entities.User;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpleadoService;
 import com.example.udea.AplicacionIngresoEgreso.services.EmpresaService;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -51,19 +55,6 @@ public class ControllerView {
         return "empresas.html";
     }
 
-    @GetMapping("/empleados")
-        public String empleados(Model model, @AuthenticationPrincipal OidcUser principal){
-
-        model.addAttribute("title", "Lista de empleados");
-        model.addAttribute("empleados", empleadoService.getAll());
-
-        if (principal != null) {
-            model.addAttribute("profile", principal.getClaims());
-        }
-
-        return "empleados.html";
-    }
-
     @GetMapping("/quienesSomos")
     public String quienesSomos (Model model, @AuthenticationPrincipal OidcUser principal){
         model.addAttribute("title", "Quienes somos");
@@ -78,14 +69,17 @@ public class ControllerView {
     @GetMapping("/empresa/{nit}")
     public String updateEmpresa (Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit){
         model.addAttribute("Empresa", empresaService.findByNit(nit));
-        model.addAttribute("title", empresaService.findByNit(nit).getNombre());
-
         if (principal != null) {
             model.addAttribute("profile", principal.getClaims());
             User user = this.userService.getOrCreateUser(principal.getClaims());
-            // NO SE QUE HACER ACÁ, AYDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-            userService.setEmpleadoCedula(user.getEmail(), "1094045398");
-            model.addAttribute("esAdmin", empleadoService.findEmployeeById(user.getEmpleadoCedula()).isEsAdministrativo());
+            List<Empleado> empleados = empleadoService.getAll();
+            for (Empleado empleado : empleados) {
+                if (empleado.getCorreo().equals(user.getEmail())) {
+                    userService.setEmpleadoCedula(user.getEmail(), empleado.getCedula());
+                    model.addAttribute("esAdmin", empleadoService.findEmployeeById(user.getEmpleadoCedula()).isEsAdministrativo());
+                    model.addAttribute("empleado", empleadoService.findEmployeeById(user.getEmpleadoCedula()));
+                }
+            }
         }
         else {
             model.addAttribute("esAdmin", false);
@@ -100,7 +94,7 @@ public class ControllerView {
             return "BMW.html";
         }
         else{
-            return "empresa.html";
+            return "index.html";
         }
     }
 
@@ -109,7 +103,6 @@ public class ControllerView {
         model.addAttribute("title", "Nuevo empleado");
         model.addAttribute("Empleado", new Empleado());
         model.addAttribute("Empresa", empresaService.findByNit(nit));
-
         if (principal != null) {
             model.addAttribute("profile", principal.getClaims());
             return "newEmpleado.html";
@@ -117,6 +110,20 @@ public class ControllerView {
         else {
             return "index.html";
         }
+    }
+
+    @GetMapping("/empresa/{nit}/compras/{nombreCarro}/{referencia}")
+    public String compras(Model model, @AuthenticationPrincipal OidcUser principal, @PathVariable String nit, @PathVariable String nombreCarro, @PathVariable String referencia){
+        model.addAttribute("title", "Compras");
+        model.addAttribute("Empresa", empresaService.findByNit(nit));
+        model.addAttribute("Carro", nombreCarro);
+        model.addAttribute("empleados", empleadoService.getAll());
+        model.addAttribute("MovimientoDinero", new MovimientoDinero());
+        model.addAttribute("referencia", referencia);
+        if (principal != null) {
+            model.addAttribute("profile", principal.getClaims());
+        }
+        return "compras.html";
     }
 }
 
