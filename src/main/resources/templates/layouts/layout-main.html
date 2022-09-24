@@ -28,7 +28,11 @@
                     <strong><h5> <a class="nav-link active" aria-current="page" href="/" style="color:#F0FFFF ">Inicio</a> </h5></strong>
                 </li>
                 <li class="nav-item">
-                    <strong><h5> <a class="nav-link active" aria-current="page" href="/empresas" style="color:#F0FFFF ">Empresas</a></h5></strong>
+                    <strong>
+                        <form th:action="@{/empresas}" th:method="get">
+                            <button type="submit" class="btn btn-link; nav-link" style="color:white">Empresas</button>
+                        </form>
+                    </strong>
                 </li>
                 <li class="nav-item">
                     <strong><h5> <a class="nav-link" href="/quienesSomos" style="color:#F0FFFF ">Nosotros</a></h5></strong>
