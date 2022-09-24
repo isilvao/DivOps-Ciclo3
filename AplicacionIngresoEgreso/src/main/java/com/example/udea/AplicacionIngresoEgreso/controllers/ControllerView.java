@@ -84,7 +84,7 @@ public class ControllerView {
             model.addAttribute("profile", principal.getClaims());
             User user = this.userService.getOrCreateUser(principal.getClaims());
             // NO SE QUE HACER ACÁ, AYDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-            userService.setEmpleadoCedula(user.getEmail(), "1094045398");
+            userService.setEmpleadoCedula(user.getEmail(), "1021393606");
             model.addAttribute("esAdmin", empleadoService.findEmployeeById(user.getEmpleadoCedula()).isEsAdministrativo());
         }
         else {
